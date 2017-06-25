@@ -1,7 +1,7 @@
-from rest_framework.permissions import BasePermission
+from rest_framework import permissions 
 
 
-class IsOwnerOrReadOnly(BasePermission):
+class IsOwnerOrReadOnly(permissions.BasePermission):
 	message = 'you must be the owner of this object'
 
 	def has_object_permission(self, request, view, obj):
