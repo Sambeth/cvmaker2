@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^api/edu/', include("education.api.urls", namespace="edu-api")),
     url(r'^api/exp/', include("experience.api.urls", namespace="exp-api")),
     url(r'^api/skill/', include("skills.api.urls", namespace="skill-api")),
+    url(r'^api/users/', include("accounts.api.urls", namespace="users-api")),
 ]

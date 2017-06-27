@@ -6,6 +6,7 @@ from rest_framework.serializers import (
 
 from ..models import Profile, Direct
 
+from accounts.api.serializers import UserDetailSerializer
 
 class ProfileCreateUpdateSerializer(ModelSerializer):
 
@@ -26,7 +27,7 @@ class ProfileListSerializer(ModelSerializer):
 		view_name='bio-api:profile-detail',
 		lookup_field='pk'
 		)
-	user = SerializerMethodField()
+	user = UserDetailSerializer(read_only=True)
 
 	class Meta:
 		model = Profile
@@ -42,16 +43,13 @@ class ProfileListSerializer(ModelSerializer):
 			'marital_status',
 		]
 
-	def get_user(self, obj):
-		return str(obj.user.username)
-
 
 class ProfileDetailSerializer(ModelSerializer):
 	delete_url = HyperlinkedIdentityField(
 		view_name='bio-api:profile-delete',
 		lookup_field='pk'
 		)
-	user = SerializerMethodField()
+	user = UserDetailSerializer(read_only=True)
 
 	class Meta:
 		model = Profile
@@ -66,9 +64,6 @@ class ProfileDetailSerializer(ModelSerializer):
 			'marital_status',
 			'delete_url'
 		]
-
-	def get_user(self, obj):
-		return str(obj.user.username)
 
 
 class DirectCreateUpdateSerializer(ModelSerializer):
@@ -90,7 +85,7 @@ class DirectListSerializer(ModelSerializer):
 		view_name='bio-api:direct-detail',
 		lookup_field='pk'
 		)
-	user = SerializerMethodField()
+	user = UserDetailSerializer(read_only=True)
 
 	class Meta:
 		model = Direct
@@ -106,16 +101,13 @@ class DirectListSerializer(ModelSerializer):
 			'github',
 		]
 
-	def get_user(self, obj):
-		return str(obj.user.username)
-
 
 class DirectDetailSerializer(ModelSerializer):
 	delete_url = HyperlinkedIdentityField(
 		view_name='bio-api:direct-delete',
 		lookup_field='pk'
 		)
-	user = SerializerMethodField()
+	user = UserDetailSerializer(read_only=True)
 
 	class Meta:
 		model = Direct
@@ -130,6 +122,3 @@ class DirectDetailSerializer(ModelSerializer):
 			'github',
 			'delete_url'
 		]
-
-	def get_user(self, obj):
-		return str(obj.user.username)
