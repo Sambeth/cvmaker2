@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^api/bio/', include("biography.api.urls", namespace="bio-api")),
     url(r'^api/edu/', include("education.api.urls", namespace="edu-api")),
     url(r'^api/exp/', include("experience.api.urls", namespace="exp-api")),
+    url(r'^api/skill/', include("skills.api.urls", namespace="skill-api")),
 ]
