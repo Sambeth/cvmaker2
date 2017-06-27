@@ -19,4 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/bio/', include("biography.api.urls", namespace="bio-api")),
+    url(r'^api/edu/', include("education.api.urls", namespace="edu-api")),
+    url(r'^api/exp/', include("experience.api.urls", namespace="exp-api")),
 ]
