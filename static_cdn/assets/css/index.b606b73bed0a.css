@@ -1,0 +1,17 @@
+body {
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("http://res.cloudinary.com/dkpdmqi4a/image/upload/v1498750697/graduates-min_w5dtut.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size:  cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#middle {
+  margin-top: 15%;
+  border-radius: 5px;
+}
+
+#profile-pic {
+  border-radius: 50%;
+}
