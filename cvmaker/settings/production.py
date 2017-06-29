@@ -25,7 +25,7 @@ SECRET_KEY = '08+5fwn4km=qy34jlj5h+z@ok05(@0ai%3@muh)91=7(u17d&w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cvmaker-api.herokuapp.com']
 
 
 # Application definition
