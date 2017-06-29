@@ -1,3 +1,4 @@
+cloudinary==1.8.0
 coverage==4.4.1
 dj-database-url==0.4.2
 Django==1.11.2
@@ -5,8 +6,12 @@ django-filter==1.0.4
 djangorestframework==3.6.3
 gunicorn==19.7.1
 Markdown==2.6.8
+mock==2.0.0
 olefile==0.44
+pbr==3.1.1
 Pillow==4.1.1
 psycopg2==2.7.1
 pytz==2017.2
+six==1.10.0
+urllib3==1.21.1
 whitenoise==3.3.0
