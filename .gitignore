@@ -56,7 +56,7 @@ coverage.xml
 # Django stuff:
 *.log
 cvmaker/settings/local.py
-cvmaker/settings/sam_settings.py
+cvmaker/old_settings.py
 
 # Flask stuff:
 instance/

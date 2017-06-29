@@ -29,7 +29,7 @@ class UserCreateSerializer(ModelSerializer):
 							{"write_only": True}
 							}
 
-	def validate(self, value):
+	def validate(self, data):
 		# email = data['email']
 		# user_qs = User.objects.filter(email=email)
 		# if user_qs.exist():

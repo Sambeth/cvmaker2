@@ -3,7 +3,10 @@ from rest_framework.serializers import (
 	HyperlinkedIdentityField,
 	SerializerMethodField
 	)
+
 from ..models import Skill
+
+from accounts.api.serializers import UserDetailSerializer
 
 
 class SkillListSerializer(ModelSerializer):
@@ -11,7 +14,7 @@ class SkillListSerializer(ModelSerializer):
 		view_name='skill-api:skill-detail',
 		lookup_field='pk',
 		)
-	user = SerializerMethodField()
+	user = UserDetailSerializer(read_only=True)
 
 	class Meta:
 		model = Skill
@@ -20,9 +23,6 @@ class SkillListSerializer(ModelSerializer):
 				  'user',
 				  'title',
 				  'content']
-
-	def get_user(self, obj):
-		return str(obj.user.username)
 
 
 class SkillCreateUpdateSerializer(ModelSerializer):
@@ -38,7 +38,7 @@ class SkillDetailSerializer(ModelSerializer):
 		view_name='skill-api:skill-delete',
 		lookup_field='pk',
 		)
-	user = SerializerMethodField()
+	user = UserDetailSerializer(read_only=True)
 
 	class Meta:
 		model = Skill
@@ -47,8 +47,5 @@ class SkillDetailSerializer(ModelSerializer):
 				  'title',
 				  'content',
 				  'delete_url']
-
-	def get_user(self, obj):
-		return str(obj.user.username)
 
 

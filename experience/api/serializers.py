@@ -3,7 +3,10 @@ from rest_framework.serializers import (
 	HyperlinkedIdentityField,
 	SerializerMethodField
 	)
+
 from ..models import Experience
+
+from accounts.api.serializers import UserDetailSerializer
 
 
 class ExperienceListSerializer(ModelSerializer):
@@ -11,7 +14,7 @@ class ExperienceListSerializer(ModelSerializer):
 		view_name='exp-api:exp-detail',
 		lookup_field='pk'
 		)
-	user = SerializerMethodField()
+	user = UserDetailSerializer(read_only=True)
 
 	class Meta:
 		model = Experience
@@ -24,9 +27,6 @@ class ExperienceListSerializer(ModelSerializer):
 			'role',
 			'activities'
 		]
-
-	def get_user(self, obj):
-		return str(obj.user.username)
 
 
 class ExperienceCreateUpdateSerializer(ModelSerializer):
@@ -46,7 +46,7 @@ class ExperienceDetailSerializer(ModelSerializer):
 		view_name='exp-api:exp-delete',
 		lookup_field='pk'
 		)
-	user = SerializerMethodField()
+	user = UserDetailSerializer(read_only=True)
 
 	class Meta:
 		model = Experience
@@ -59,6 +59,3 @@ class ExperienceDetailSerializer(ModelSerializer):
 			'activities',
 			'delete_url'
 		]
-
-	def get_user(self, obj):
-		return str(obj.user.username)

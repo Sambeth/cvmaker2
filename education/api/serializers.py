@@ -6,6 +6,8 @@ from rest_framework.serializers import (
 
 from ..models import Education
 
+from accounts.api.serializers import UserDetailSerializer
+
 
 class EducationCreateUpdateSerializer(ModelSerializer):
 
@@ -21,7 +23,7 @@ class EducationListSerializer(ModelSerializer):
 		view_name='edu-api:edu-detail',
 		lookup_field='pk'
 		)
-	user = SerializerMethodField()
+	user = UserDetailSerializer(read_only=True)
 
 	class Meta:
 		model = Education
@@ -32,16 +34,13 @@ class EducationListSerializer(ModelSerializer):
 			      'duration',
 			      'certificate']
 
-	def get_user(self, obj):
-		return str(obj.user.username)
-
 
 class EducationDetailSerializer(ModelSerializer):
 	delete_url = HyperlinkedIdentityField(
 		view_name='edu-api:edu-delete',
 		lookup_field='pk'
 		)
-	user = SerializerMethodField()
+	user = UserDetailSerializer(read_only=True)
 
 	class Meta:
 		model = Education
@@ -51,6 +50,3 @@ class EducationDetailSerializer(ModelSerializer):
 			      'duration',
 			      'certificate',
 			      'delete_url']
-
-	def get_user(self, obj):
-		return str(obj.user.username)
