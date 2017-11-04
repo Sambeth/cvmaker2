@@ -91,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'cvmaker_drf',
         'USER': 'postgres',
-        'PASSWORD': 'Pervert1',
+        'PASSWORD': 'Passowrd',
         'HOST': '127.0.0.1',
         'PORT': '5432'
     }
